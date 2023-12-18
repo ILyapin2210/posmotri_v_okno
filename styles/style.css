@@ -16,7 +16,6 @@ html {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
-  /* Гибкое выравнивание соответствует макету только при вьюпорте 1200х800 */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,7 +59,6 @@ ol {
   display: flex;
   gap: 30px;
   max-inline-size: 1140px;
-  margin: 0 auto;
 }
 
 /* блок выдачи результата поиска */
@@ -184,10 +182,10 @@ ol {
 
 .button {
   background-color: transparent;
-  border: 1px solid #fff;
   color: #fff;
+  border: 1px solid currentColor;
   font-family: inherit;
-  font-size: 18px;
+  font-size: inherit;
   font-weight: 700;
   padding-block-start: 6px;
   padding-block-end: 6px;
@@ -196,12 +194,12 @@ ol {
 
 /* Состояния кнопок */
 
-.button-focus {
+.button:focus {
   outline: none;
 }
 
 .button:focus-visible {
-  outline: 1px solid #fff;
+  outline: 1px solid currentColor;
   outline-offset: 1px;
 }
 
@@ -251,6 +249,7 @@ ol {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  min-inline-size: 399px;
   block-size: 296px;
   overflow: auto;
 }
@@ -271,17 +270,21 @@ ol {
 }
 
 .content__video-card-description-container {
+  max-inline-size: 199px;
   display: flex;
   flex-direction: column;
   gap: 6px;
-  text-transform: uppercase;
 }
 
 .content__video-card-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   font-family: Oswald, Arial, Helvetica, sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 1.0;
+  text-transform: uppercase;
 }
 
 .content__video-card-description {
@@ -293,6 +296,8 @@ ol {
 .content__video-card-thumbnail {
   inline-size: 194px;
   block-size: 103px;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* Состояния карточек */
@@ -303,7 +308,7 @@ ol {
 
 .content__card-link:hover {
   text-decoration: underline;
-  text-underline-offset: 6px;
+  text-underline-offset: 2px;
 }
 
 .content__card-link:active {
@@ -315,5 +320,5 @@ ol {
 }
 
 .content__card-link:focus-visible {
-  outline: 1px solid #fff;
+  outline: 1px solid currentColor;
 }
